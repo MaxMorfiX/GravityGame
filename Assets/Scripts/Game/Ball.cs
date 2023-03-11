@@ -8,9 +8,11 @@ namespace Gravity {
     public class Ball : MonoBehaviour {
 
         public Rigidbody2D rb;
+        private GameController gameController;
 
-        private void Awake() {
+        private void OnEnable() {
             rb = GetComponent<Rigidbody2D>();
+            gameController = GlobalVars.ScriptsContainer.GetComponent<GameController>();
         }
 
         public Vector2 CalcAttractionToBall(Ball ball) {
@@ -46,6 +48,15 @@ namespace Gravity {
             }
 
             return finForce;
+        }
+
+        public void OnObstacleEnter() {
+            gameController.DestroyBall(this);
+            Destroy(gameObject);
+        }
+        
+        public void OnFinishEnter() {
+            
         }
 
     }

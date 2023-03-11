@@ -21,6 +21,14 @@ namespace Gravity {
             return AddBall(new Vector3());
         }
 
+        public void DestroyBall(Ball ball) {
+            int index = Array.IndexOf(balls, ball);
+
+            var ballsList = new List<Ball>(balls);
+            ballsList.RemoveAt(index);
+            balls = ballsList.ToArray();
+        }
+
         public Ball AddBall(Vector3 pos) {
             Ball ball = Instantiate(GlobalVars.BallPrefab).GetComponent<Ball>();
             ball.transform.position = pos;

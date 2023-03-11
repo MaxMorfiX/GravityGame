@@ -10,10 +10,11 @@ namespace Gravity {
         [SerializeField] float forceDiffMagnitudeLimiter = 5f;
         [SerializeField] GameObject BallPrefab;
 
-        private void Start() {
+        private void Awake() {
             GlobalVars.CameraGO = BallPrefab;
             GlobalVars.forceDiffMagnitudeLimiter = forceDiffMagnitudeLimiter;
             GlobalVars.BallPrefab = BallPrefab;
+            GlobalVars.ScriptsContainer = gameObject;
         }
 
     }

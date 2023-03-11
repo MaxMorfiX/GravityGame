@@ -8,5 +8,6 @@ namespace Gravity {
         public static GameObject CameraGO;
         public static float forceDiffMagnitudeLimiter = 5f;
         public static GameObject BallPrefab;
+        public static GameObject ScriptsContainer;
     }
 }
